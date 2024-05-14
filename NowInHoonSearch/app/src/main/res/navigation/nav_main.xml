@@ -10,14 +10,20 @@
         android:name="hoon.exam.nowinhoonsearch.HomeFragment"
         tools:layout="@layout/fragment_home"
         android:label="HomeFragment" />
+
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="hoon.exam.nowinhoonsearch.FavoriteFragment"
         tools:layout="@layout/fragment_favorite"
         android:label="FavoriteFragment" />
+
     <fragment
         android:id="@+id/myPageFragment"
         android:name="hoon.exam.nowinhoonsearch.MyPageFragment"
         tools:layout="@layout/fragment_my_page"
         android:label="MyPageFragment" />
+
+    <action android:id="@+id/action_global_favoriteFragment" app:destination="@id/favoriteFragment"/>
+    <action android:id="@+id/action_global_homeFragment" app:destination="@id/homeFragment"/>
+    <action android:id="@+id/action_global_myPageFragment" app:destination="@id/myPageFragment"/>
 </navigation>

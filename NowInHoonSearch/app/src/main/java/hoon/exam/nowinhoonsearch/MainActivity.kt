@@ -40,21 +40,24 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.homeFragment -> {
                     Log.d("MainActivity", "onNavigationItemSelected, item = homeFragment")
+                    moveFragment(R.id.action_global_homeFragment)
                 }
 
                 R.id.favoriteFragment -> {
                     Log.d("MainActivity", "onNavigationItemSelected, item = favoriteFragment")
+                    moveFragment(R.id.action_global_favoriteFragment)
                 }
 
                 R.id.myPageFragment -> {
                     Log.d("MainActivity", "onNavigationItemSelected, item = myPageFragment")
+                    moveFragment(R.id.action_global_myPageFragment)
                 }
             }
             false
         }
+    }
 
-
-
-
+    private fun moveFragment(action: Int) {
+        navController.navigate(action)
     }
 }
