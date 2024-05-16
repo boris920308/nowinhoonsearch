@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import hoon.exam.nowinhoonsearch.databinding.FragmentHomeBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -18,6 +17,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     val binding get() = _binding!!
     val viewModel: HomeViewModel by viewModels()
+    private val listAdapter = HomeSearchResultAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +43,14 @@ class HomeFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.searchFlow.collect {
                 Log.d("hoon92", "HomeFragment, searchResult = $it")
+                listAdapter.submitList(it.items)
+            }
+        }
+
+        binding.rvSearchList.apply {
+            layoutManager = LinearLayoutManager(context).apply {
+                orientation = LinearLayoutManager.VERTICAL
+                adapter = listAdapter
             }
         }
     }
