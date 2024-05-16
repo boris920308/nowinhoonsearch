@@ -39,7 +39,7 @@ private val retrofit = Retrofit.Builder()
 
 interface NaverAPIService {
     @GET("v1/search/{type}.json")
-    suspend fun getSearch(
+    suspend fun runSearch(
         @Path("type") type: String,
         @Query("query") query: String,
         @Query("display") display: Int? = null,

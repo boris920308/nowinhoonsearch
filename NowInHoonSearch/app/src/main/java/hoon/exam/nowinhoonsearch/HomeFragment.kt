@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -39,7 +38,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSearch.setOnClickListener {
-            viewModel.getSearchResult("book", binding.editText.text.toString())
+            viewModel.runSearch("book", binding.editText.text.toString())
         }
 
         lifecycleScope.launch {

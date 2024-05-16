@@ -14,11 +14,11 @@ class HomeViewModel : ViewModel() {
     private val _searchFlow = MutableSharedFlow<NaverSearchResponse>()
     val searchFlow = _searchFlow.asSharedFlow()
 
-    fun getSearchResult(key: String, keyword: String) {
+    fun runSearch(key: String, keyword: String) {
         Log.d("hoon92", "HomeViewModel, getSearchResult, keyword = $keyword")
         viewModelScope.launch {
             try {
-                _searchFlow.emit(NaverAPI.naverApiService.getSearch(key, keyword, 20, null))
+                _searchFlow.emit(NaverAPI.naverApiService.runSearch(key, keyword, 20, null))
             } catch (e: Exception) {
                 Log.e("hoon92", "err, Msg = e")
             }

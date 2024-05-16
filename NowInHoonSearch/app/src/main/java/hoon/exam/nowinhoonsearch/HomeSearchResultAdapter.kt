@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import hoon.exam.nowinhoonsearch.databinding.ItemHomeSearchResultBinding
-import hoon.exam.nowinhoonsearch.network.NaverSearchResponseItem
+import hoon.exam.nowinhoonsearch.network.NaverSearchResponseItemDetail
 
-class HomeSearchResultAdapter() : ListAdapter<NaverSearchResponseItem, HomeSearchResultAdapter.HomeSearchResultAdapterHolder>(
+class HomeSearchResultAdapter() : ListAdapter<NaverSearchResponseItemDetail, HomeSearchResultAdapter.HomeSearchResultAdapterHolder>(
     DiffCallback
 ) {
 
@@ -26,23 +26,23 @@ class HomeSearchResultAdapter() : ListAdapter<NaverSearchResponseItem, HomeSearc
 
 
     inner class HomeSearchResultAdapterHolder(private val binding: ItemHomeSearchResultBinding) : ViewHolder(binding.root) {
-        fun bind(item: NaverSearchResponseItem) {
+        fun bind(item: NaverSearchResponseItemDetail) {
             binding.tvTitle.text = item.title
         }
     }
 
     companion object {
-        val DiffCallback = object : DiffUtil.ItemCallback<NaverSearchResponseItem>() {
+        val DiffCallback = object : DiffUtil.ItemCallback<NaverSearchResponseItemDetail>() {
             override fun areItemsTheSame(
-                oldItem: NaverSearchResponseItem,
-                newItem: NaverSearchResponseItem
+                oldItem: NaverSearchResponseItemDetail,
+                newItem: NaverSearchResponseItemDetail
             ): Boolean {
                 return oldItem.title == newItem.title
             }
 
             override fun areContentsTheSame(
-                oldItem: NaverSearchResponseItem,
-                newItem: NaverSearchResponseItem
+                oldItem: NaverSearchResponseItemDetail,
+                newItem: NaverSearchResponseItemDetail
             ): Boolean {
                 return oldItem == newItem
             }
