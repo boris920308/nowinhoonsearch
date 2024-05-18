@@ -22,8 +22,8 @@ data class NaverSearchResponseItemDetail(
     val link: String = "",
     @SerializedName("description")
     val description: String = "",
-    @SerializedName("thumbnail")
-    val thumbnail: String = "",
+    @SerializedName("image")
+    val image: String = "",
     @SerializedName("pubDate")
     val pubDate: String = ""
 )
