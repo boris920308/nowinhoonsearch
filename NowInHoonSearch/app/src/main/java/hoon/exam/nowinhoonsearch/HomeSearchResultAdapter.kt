@@ -28,6 +28,11 @@ class HomeSearchResultAdapter() : ListAdapter<NaverSearchResponseItemDetail, Hom
     inner class HomeSearchResultAdapterHolder(private val binding: ItemHomeSearchResultBinding) : ViewHolder(binding.root) {
         fun bind(item: NaverSearchResponseItemDetail) {
             binding.tvTitle.text = item.title
+            binding.tvAuthor.text = item.author
+            binding.tvPublisher.text = item.publisher
+            binding.tvPrice.text = item.discount.toString()
+            binding.tvDescription.text = item.description
+
         }
     }
 
