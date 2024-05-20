@@ -1,10 +1,12 @@
 package hoon.exam.nowinhoonsearch
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import hoon.exam.nowinhoonsearch.databinding.ItemHomeSearchResultBinding
 import hoon.exam.nowinhoonsearch.network.NaverSearchResponseItemDetail
 
@@ -32,6 +34,12 @@ class HomeSearchResultAdapter() : ListAdapter<NaverSearchResponseItemDetail, Hom
             binding.tvPublisher.text = item.publisher
             binding.tvPrice.text = item.discount.toString()
             binding.tvDescription.text = item.description
+
+            Log.d("hoon92", "HomeSearchResultAdapter, item.image = ${item.image}")
+
+            Glide.with(itemView)
+                .load(item.image)
+                .into(binding.ivThumbnail)
 
         }
     }
