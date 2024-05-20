@@ -5,10 +5,17 @@
 ### 사용 기술 (커밋순)
 
 `ViewBinding` 
+
 `JetpackNavigation` `BottomNavigation` `Fragment`
+
 `REST API(Naver)` `Retrofit` `LiveData` `BuildConfig`
+
 `ViewModel`
+
 `Coroutine` `Flow`
+
 `RecyclerView` `DiffUtil`
+
 `ConstraintLayout`
+
 `Glide`
